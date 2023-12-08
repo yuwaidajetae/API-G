@@ -14,7 +14,7 @@ con = mysql.createConnection({
   multipleStatements: true,
 });
 
-app.use(express.json()); // för att läsa data från klient och för att skicka svar (ersätter bodyparser som vi använt någon gång tidigare)
+app.use(express.json()); // ta emot data i JSON-format
 
 
 app.get("/", function (req, res) {
@@ -70,7 +70,6 @@ let createCondition = function (query) {
 
   app.put("/users/:id", function (req, res) {
     //kod här för att hantera anrop…
-    // kolla först att all data som ska finnas finns i request-body
     if (!(req.body && req.body.name && req.body.email && req.body.password)) {
       // om data saknas i body
       res.sendStatus(400);
@@ -99,13 +98,13 @@ function hash(data) {
 }
 
 
-// samma som i tidigare exempel (hantera POST och skriva till databas), men med hashat lösenord
+// (hantera POST och skriva till databas), men med hashat lösenord
 app.post("/users", function (req, res) {
   if (!req.body.username) {
     res.status(400).send("username required!");
     return;
   }
-  let fields = ["name", "password", "email", "username"]; // ändra eventuellt till namn på er egen databastabells kolumner
+  let fields = ["name", "password", "email", "username"]; // mina tabells kolumner
   for (let key in req.body) {
     if (!fields.includes(key)) {
       res.status(400).send("Unknown field: " + key);
