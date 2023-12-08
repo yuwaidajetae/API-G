@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dokumentation</title>
+</head>
+<body>
+
+    <h1>Dokumentation av det här APIet</h1>
+        <h2>Routes</h2>
+
+        <ul>
+            <!--Övning 2 -->
+          <li><em>GET /users</em> - returnerar alla användare.</li>
+
+          <li><em>GET /users/{id}</em> - returnerar en user med angivet id eller status 404 om användaren saknas.</li>
+
+
+        </ul>
+
+        <ul>
+            <!-- Övning 3 -->
+            <li><em>POST /users</em> - skapar en ny användare accepterar JSON objekt på formatet {"name": "", "email": "", "username": "unikt namn", "password": ""}. <code>userId</code> är obligatoriskt.</li>
+          </ul>
+
+          <ul>
+            <!-- Övning 5-->
+            <li><em>PUT /users/:id</em> - uppdaterar användaren med angivet id, accepterar JSON-objekt på formatet {"name": "", "password": "", "email": ""}.</li>
+          </ul>
+          <ul>
+            <!--Övning 6-->
+            <li>POST /users</em> - skapar en ny användare med hashat lösenord, accepterar JSON objekt på formatet {"name": "", "password": "", "username": "unikt namn", "email": ""}. <code>userId</code> är obligatoriskt.</li>
+            <li><em>POST /login</em> - inloggning, accepterar JSON-objekt på formatet {"username": "", "password": ""}.</li>
+          </ul>
+
+    
+</body>
+</html>
